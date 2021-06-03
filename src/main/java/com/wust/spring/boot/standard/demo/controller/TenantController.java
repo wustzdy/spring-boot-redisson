@@ -1,5 +1,6 @@
 package com.wust.spring.boot.standard.demo.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.wust.spring.boot.standard.demo.model.Tenant;
 import com.wust.spring.boot.standard.demo.service.TenantService;
 import org.springframework.beans.factory.annotation.Autowired;
