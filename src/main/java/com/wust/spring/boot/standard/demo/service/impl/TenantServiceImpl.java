@@ -12,12 +12,10 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
-
 @Slf4j
 @Component
 public class TenantServiceImpl implements TenantService {
-    @Resource
+    @Autowired
     private TenantMapper tenantMapper;
 
     @Override

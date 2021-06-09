@@ -1,8 +1,6 @@
 package com.wust.spring.boot.standard.demo.service.impl;
 
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wust.spring.boot.standard.demo.entity.UserEntity;
 import com.wust.spring.boot.standard.demo.mapper.UserMapper;
 import com.wust.spring.boot.standard.demo.model.User;
@@ -13,12 +11,11 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 
 @Slf4j
 @Component
 public class UserServiceImpl implements UserService {
-    @Resource
+    @Autowired
     private UserMapper userMapper;
 
     @Override
