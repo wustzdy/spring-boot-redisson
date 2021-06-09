@@ -1,13 +1,21 @@
 package com.wust.spring.boot.standard.demo.controller;
 
+import com.wust.spring.boot.standard.demo.annotation.Api_Base;
+import com.wust.spring.boot.standard.demo.annotation.Api_Business;
+import com.wust.spring.boot.standard.demo.constant.page.PageResult;
 import com.wust.spring.boot.standard.demo.model.User;
+import com.wust.spring.boot.standard.demo.model.request.UserRequest;
 import com.wust.spring.boot.standard.demo.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 @RequestMapping("zdy/user")
+@Api_Business
+@Api(value = "用户 - user用户api", tags = "用户 - user用户api")
 public class UserController {
 
     @Autowired
@@ -26,5 +34,11 @@ public class UserController {
     @RequestMapping(value = "/getUser", method = RequestMethod.GET)
     public User getUsers(@RequestParam String userName) {
         return userService.getUser(userName);
+    }
+
+    @ApiOperation(value = "查询iam用户分页列表信息", notes = "查询iam用户分页列表信息")
+    @PostMapping("/queryPage")
+    public PageResult<User> queryUserPage(@RequestBody(required = false) UserRequest request) {
+        return userService.queryUserPage(request);
     }
 }
