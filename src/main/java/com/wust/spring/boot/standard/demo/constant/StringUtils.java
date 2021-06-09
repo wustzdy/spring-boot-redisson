@@ -1,4 +1,4 @@
-package com.wust.spring.boot.standard.demo.constant.page;
+package com.wust.spring.boot.standard.demo.constant;
 
 public class StringUtils extends org.springframework.util.StringUtils {
 

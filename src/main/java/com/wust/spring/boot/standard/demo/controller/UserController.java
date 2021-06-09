@@ -1,6 +1,5 @@
 package com.wust.spring.boot.standard.demo.controller;
 
-import com.wust.spring.boot.standard.demo.annotation.Api_Base;
 import com.wust.spring.boot.standard.demo.annotation.Api_Business;
 import com.wust.spring.boot.standard.demo.constant.page.PageResult;
 import com.wust.spring.boot.standard.demo.model.User;
