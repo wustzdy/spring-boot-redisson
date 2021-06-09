@@ -3,6 +3,8 @@ package com.wust.spring.boot.standard.demo.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.wust.spring.boot.standard.demo.constant.page.PageConvert;
+import com.wust.spring.boot.standard.demo.constant.page.PageRequire;
 import com.wust.spring.boot.standard.demo.constant.page.PageResult;
 import com.wust.spring.boot.standard.demo.entity.UserEntity;
 import com.wust.spring.boot.standard.demo.mapper.UserMapper;
@@ -65,6 +67,28 @@ public class UserServiceImpl implements UserService {
                 .setTotal(userIPage.getTotal())
                 .setPage(userIPage.getCurrent())
                 .setPageSize(userIPage.getSize())
+                .setRecords(list);
+    }
+
+    @Override
+    public PageResult<User> list(PageRequire pageRequire, String name) {
+        QueryWrapper<UserEntity> wrapper = new QueryWrapper<>();
+        wrapper.like("user_name", name);
+
+        Page<UserEntity> page = PageConvert.PageRequire2MybatisPlusPage(pageRequire);
+        Page<UserEntity> entityPage = userMapper.selectPage(page, wrapper);
+
+
+        List<User> list = entityPage.getRecords().stream().map(
+                en -> new User().setUserName(en.getUserName())
+                        .setPassWord(en.getPassWord())
+                        .setId(en.getId())
+        ).collect(Collectors.toList());
+
+        return new PageResult<User>()
+                .setTotal(entityPage.getTotal())
+                .setPage(entityPage.getCurrent())
+                .setPageSize(entityPage.getSize())
                 .setRecords(list);
     }
 }

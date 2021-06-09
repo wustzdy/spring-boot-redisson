@@ -41,4 +41,10 @@ public class UserController {
     public PageResult<User> queryUserPage(@RequestBody(required = false) UserRequest request) {
         return userService.queryUserPage(request);
     }
+
+    @ApiOperation(value = "自定义问题反馈列表分页", notes = "自定义问题反馈列表分页")
+    @PostMapping("/_list")
+    public PageResult<User> list(@RequestBody(required = false) UserRequest req) {
+        return userService.list(req.getPageRequire(), req.getName());
+    }
 }
