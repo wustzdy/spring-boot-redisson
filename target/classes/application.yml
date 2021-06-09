@@ -21,7 +21,8 @@ spring:
     enabled: true
 
 mybatis-plus:
-  typeAliasesPackage: com.wust.spring.boot.standard.demo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 server:
   port: 8003
