@@ -1,13 +1,17 @@
 package com.wust.spring.boot.standard.demo.controller;
 
+import com.wust.spring.boot.standard.demo.annotation.Api_Business;
 import com.wust.spring.boot.standard.demo.model.Tenant;
 import com.wust.spring.boot.standard.demo.service.TenantService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 @RequestMapping("zdy/tenant")
+@Api_Business
+@Api(value = "租户 - tenant租户api", tags = "租户 - tenant租户api")
 public class TenantController {
 
     @Autowired
