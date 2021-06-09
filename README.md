@@ -1,5 +1,5 @@
-# spring-boot-redisson
-spring-boot-redisson
+# spring-boot-standard
+spring-boot-standard
 
 
 ./mvnw spring-boot:run
