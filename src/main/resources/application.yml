@@ -20,5 +20,9 @@ spring:
     change-log: classpath:liquibase/changelog-master.xml
     enabled: true
 
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
 server:
   port: 8003
